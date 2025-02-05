@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        // Retrieve the SonarCloud token from Jenkins credentials
+        SONAR_TOKEN = credentials('sonarcloud-token')
+    }
+
     stages {
         stage('Checkout') {
             steps {
